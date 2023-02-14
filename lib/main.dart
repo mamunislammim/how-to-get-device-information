@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -26,7 +25,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
+ // String ? deviceIDPackage;
   String? deviceModel;
   String? deviceBrand;
   String? deviceId;
@@ -46,6 +45,20 @@ class _HomePageState extends State<HomePage> {
   String? version;
   String? data;
 
+
+  // Not Working
+  // Future getDeviceId()async{
+  //   print("object");
+  //    try {
+  //      print("BBBBBBBBBB");
+  //     var deviceIDPackage = await PlatformDeviceId.getDeviceId;
+  //      print("Dev : ${deviceIDPackage?.length}");
+  //   } on PlatformException {
+  //      print("AAAAAAAAA");
+  //    var deviceIDPackage = 'Failed to get deviceId.';
+  //      print("Error : $deviceIDPackage");
+  //   }
+  // }
 
   Future getModel()async{
     DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
@@ -75,6 +88,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState(){
     getModel();
+   // getDeviceId();
     super.initState();
   }
 
@@ -97,6 +111,7 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text("Brand : $deviceBrand"),
+                //Text("Device Id Package : $deviceIDPackage"),
                 Text("Id : $deviceId"),
                 Text("Model : $deviceModel"),
                 Text("Device : $deviceBoard"),
